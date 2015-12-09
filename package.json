@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/IDWMaster/freespeech-crypto/issues"
   },
-  "homepage": "https://github.com/IDWMaster/freespeech-crypto#readme"
+  "homepage": "https://github.com/IDWMaster/freespeech-crypto#readme",
+  "dependencies": {
+    "node-rsa": "^0.2.26"
+  }
 }
