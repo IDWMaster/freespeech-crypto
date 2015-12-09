@@ -1,0 +1,23 @@
+{
+  "name": "freespeech-cryptography",
+  "version": "1.0.0",
+  "description": "A cryptographic library aimed to simplify the establishment process for P2P authenticated connections",
+  "main": "freecrypt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IDWMaster/freespeech-crypto.git"
+  },
+  "keywords": [
+    "encryption",
+    "freespeech"
+  ],
+  "author": "Brian Bosak <brielcccc@gmail.com> (https://github.com/IDWMaster)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/IDWMaster/freespeech-crypto/issues"
+  },
+  "homepage": "https://github.com/IDWMaster/freespeech-crypto#readme"
+}
