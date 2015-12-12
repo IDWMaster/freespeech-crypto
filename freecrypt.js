@@ -175,6 +175,9 @@ aesEncrypt:function(key,data){
                 session.close(); //Terminate session on error.
             }
         });
+    },
+    newRSA:function() {
+        return new NodeRSA();
     }
     
 };
