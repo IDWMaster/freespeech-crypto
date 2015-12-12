@@ -176,9 +176,7 @@ aesEncrypt:function(key,data){
             }
         });
     },
-    newRSA:function() {
-        return new NodeRSA();
-    }
+    NodeRSA:NodeRSA
     
 };
 module.exports = crypt;
