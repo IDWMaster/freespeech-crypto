@@ -102,7 +102,6 @@ aesEncrypt:function(key,data){
                 }
             }
         }catch(er) {
-            console.log('DEBUG: Session server error '+er);
         }
         });
         //TODO: Encrypt before sending
@@ -123,7 +122,7 @@ aesEncrypt:function(key,data){
      * @returns {undefined}
      */
     negotiateServerConnection:function(session,pubkey,callback) {
-        console.log('DEBUG: Session start');
+        
         var encryptedSession = Session();
             var _send = encryptedSession.send;
             var _close = encryptedSession.close;
@@ -157,7 +156,6 @@ aesEncrypt:function(key,data){
                     packet.copy(aeskey, 0, 5, 5 + 32);
                     var includeIPInformation = packet[5 + 32];
                     encryptedSession.key = aeskey;
-                    console.log('DEBUG: Session parsed');
                     //Send response to connection
                     var response = new Buffer(16);
                     //TODO: To prevent replay attacks, the first four bytes in this frame should match the random data
@@ -166,12 +164,10 @@ aesEncrypt:function(key,data){
                         response[4] = 1;
                         response.writeUInt16LE(encryptedSession.getSessionID(),4+1);
                         //TODO: Optional IP and port numbers
-                        console.log('DEBUG TODO add IP and port numbers here');
                         session.send(crypt.aesEncrypt(encryptedSession.key,response));
                         callback(encryptedSession);
                 }
             } catch (er) {
-                console.log('DEBUG SESSION ERR: '+er);
                 session.close(); //Terminate session on error.
             }
         });
