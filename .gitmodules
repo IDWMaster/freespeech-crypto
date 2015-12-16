@@ -1,0 +1,3 @@
+[submodule "libntru"]
+	path = libntru
+	url = git@github.com:tbuktu/libntru.git
