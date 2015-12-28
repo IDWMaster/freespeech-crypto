@@ -1,6 +1,6 @@
 {
   "name": "freespeech-cryptography",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A cryptographic library aimed to simplify the establishment process for P2P authenticated connections",
   "main": "freecrypt.js",
   "scripts": {
@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/IDWMaster/freespeech-crypto#readme",
   "dependencies": {
-    "node-rsa": "^0.2.26"
+    "freespeech-session": "^1.1.1",
+    "node-rsa": "^0.2.26",
+    "ntrujs": "^1.0.3"
   }
 }
