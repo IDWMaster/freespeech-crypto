@@ -6,7 +6,6 @@ console.log('Generating post-quantum key....');
 var serverKey = crypto.generateHybridKey(1024);
 
 
-
 console.log('Test program for crypto library');
 
 var server = new CleartextServer(function(portno){

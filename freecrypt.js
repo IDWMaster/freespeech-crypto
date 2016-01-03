@@ -61,6 +61,13 @@ var addHybridExtensions = function(hybridkey){
         retval.isPrivate = function() {
             return retval.ntru.private != undefined;
         };
+        retval.thumbprint = function() {
+            var pubbin = retval.rsa.exportKey('pkcs8-public-der');
+            pubbin = Buffer.concat([pubbin,retval.ntru.public],pubbin.length+retval.ntru.public.length);
+            var hash = crypto.createHash('sha256');
+            hash.update(pubbin);
+            return hash.digest('hex');
+        };
     return retval;
 };
 
