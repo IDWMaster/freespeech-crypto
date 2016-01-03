@@ -2,10 +2,10 @@ var Session = require('freespeech-session').Session;
 var CleartextServer = require('freespeech-session').CleartextServer;
 var crypto = require('./freecrypt');
 
-console.log('Generating server key....');
-var serverKey = crypto.generateRSAKey(1024);
-console.log('Generating client key....');
-var clientKey = crypto.generateRSAKey(1024);
+console.log('Generating post-quantum key....');
+var serverKey = crypto.generateHybridKey(1024);
+
+
 
 console.log('Test program for crypto library');
 

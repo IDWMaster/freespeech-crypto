@@ -1,6 +1,6 @@
 {
   "name": "freespeech-cryptography",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A cryptographic library aimed to simplify the establishment process for P2P authenticated connections",
   "main": "freecrypt.js",
   "scripts": {
@@ -23,6 +23,6 @@
   "dependencies": {
     "freespeech-session": "^1.1.1",
     "node-rsa": "^0.2.26",
-    "ntrujs": "^1.0.3"
+    "ntrujs": "^1.0.4"
   }
 }
