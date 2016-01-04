@@ -4,7 +4,7 @@ var crypto = require('./freecrypt');
 
 console.log('Generating post-quantum key....');
 var serverKey = crypto.generateHybridKey(1024);
-
+crypto.importKey(serverKey.exportPublic());
 
 console.log('Test program for crypto library');
 

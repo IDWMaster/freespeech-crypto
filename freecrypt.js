@@ -110,13 +110,12 @@ var addHybridExtensions = function(hybridkey){
                 case 2:
                     //NTRU+RSA public key
                     var retval = {};
-                    var rsabuf = new Buffer(buffy.readUInt32LE(0));
-                    buffy.copy(rsabuf,0,0,buffy.readUInt32LE(0));
+                    var rsalen = buffy.readUInt32LE(0);
+                    var rsabuf = buffy.slice(4,4+rsalen);
                     retval.rsa = new NodeRSA();
                     retval.rsa.importKey(rsabuf,'pkcs8-public-der');
-                    var ntrubuf = new Buffer(buffy.length-4-rsabuf.length);
+                    var ntrubuf = buffy.slice(4+rsalen);
                     retval.ntru = {public:ntrubuf};
-                    buffy.copy(ntrubuf,0,4+rsabuf.length);
                     addHybridExtensions(retval);
                     return retval;
                     break;
