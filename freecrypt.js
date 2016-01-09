@@ -191,7 +191,7 @@ aesEncrypt:function(key,data){
         var timeout = setTimeout(function () {
             parentSocket.unregisterReceiveCallback(recvCBHandle);
             callback(null);
-        }, 2000);
+        }, 10000);
         var packet = new Buffer(4 + 1 + 32 + 1);
         rnd.copy(packet, 0, 0, 4);
         packet[4] = 0;
