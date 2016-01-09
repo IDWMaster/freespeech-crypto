@@ -1,6 +1,6 @@
 {
   "name": "freespeech-cryptography",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A cryptographic library aimed to simplify the establishment process for P2P authenticated connections",
   "main": "freecrypt.js",
   "scripts": {
