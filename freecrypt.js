@@ -242,10 +242,8 @@ aesEncrypt:function(key,data){
         //TODO: Encrypt before sending
         var key = new Buffer(32);
         rnd.copy(key, 0, 4);
-        console.error('Size before encryption: '+packet.length);
         packet = publicKey.encrypt(packet);
         
-        console.error('Size after encryption: '+packet.length);
         parentSocket.send(packet);
 
     });
