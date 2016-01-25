@@ -2,7 +2,7 @@ var NodeRSA = require('node-rsa');
 var SessionJS = require('freespeech-session');
 var Session = SessionJS.Session;
 var crypto = require('crypto');
-var ntru = require('ntrujs');
+//var ntru = require('ntrujs');
 NodeRSA.prototype.thumbprint = function () {
     var pubbin = this.exportKey('pkcs8-public-der');
     var hash = crypto.createHash('sha256');
@@ -81,12 +81,22 @@ var addHybridExtensions = function(hybridkey){
     generateRSAKey:function(bits) {
         return addRSAExtensions(new NodeRSA({b:bits}));
     },
+    //TODO: When debates are settled about viable post-quantum algorithms; implement this.
+    //Until there is general concensus in the cryptographic community about what to do here;
+    //the best we can do if hope that such a computer is physically impossible.
     generateHybridKey:function(rsaBits) {
+        //NOTICE -- We're getting rid of NTRU cryptography, for practical packet size issues
+        //Additionally; if a quantum computer ever does break RSA, we've likely got a LOT
+        //more to worry about......
+        
+        return crypt.generateRSAKey(rsaBits);
+        
+        /*
         var retval = {};
         retval.rsa = crypt.generateRSAKey(rsaBits);
         retval.ntru = ntru.createKey();
         return addHybridExtensions(retval);
-        
+        */
     },
     importKey:function(data) {
         //TODO: Try new opcodes, followed by legacy formats.
@@ -232,7 +242,10 @@ aesEncrypt:function(key,data){
         //TODO: Encrypt before sending
         var key = new Buffer(32);
         rnd.copy(key, 0, 4);
+        console.error('Size before encryption: '+packet.length);
         packet = publicKey.encrypt(packet);
+        
+        console.error('Size after encryption: '+packet.length);
         parentSocket.send(packet);
 
     });
