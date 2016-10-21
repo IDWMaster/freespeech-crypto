@@ -85,18 +85,13 @@ var addHybridExtensions = function(hybridkey){
     //Until there is general concensus in the cryptographic community about what to do here;
     //the best we can do if hope that such a computer is physically impossible.
     generateHybridKey:function(rsaBits) {
-        //NOTICE -- We're getting rid of NTRU cryptography, for practical packet size issues
-        //Additionally; if a quantum computer ever does break RSA, we've likely got a LOT
-        //more to worry about......
+           
         
-        return crypt.generateRSAKey(rsaBits);
-        
-        /*
         var retval = {};
         retval.rsa = crypt.generateRSAKey(rsaBits);
         retval.ntru = ntru.createKey();
         return addHybridExtensions(retval);
-        */
+        
     },
     importKey:function(data) {
         //TODO: Try new opcodes, followed by legacy formats.
