@@ -22,6 +22,7 @@
   "homepage": "https://github.com/IDWMaster/freespeech-crypto#readme",
   "dependencies": {
     "freespeech-session": "^1.1.1",
-    "node-rsa": "^0.2.26"
+    "node-rsa": "^0.2.26",
+    "ntrujs": "^1.0.7"
   }
 }
